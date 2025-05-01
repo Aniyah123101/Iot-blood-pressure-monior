@@ -1,6 +1,6 @@
 # 🩺 IoT-Based Encrypted Blood Pressure Monitoring System
 
-This project simulates an **IoT-based health monitoring system** that collects, encrypts, decrypts, and visualizes real-time patient vitals: **blood pressure**, **glucose levels**, and **heart rate**. The data is encrypted using **Fernet symmetric encryption** to demonstrate a secure transmission model for healthcare IoT systems.
+This project simulates an **IoT-based health monitoring system** that collects, encrypts, decrypts, and visualizes real-time patient vitals: **blood pressure**, **glucose levels**, and **heart rate**. The data is encrypted using **Fernet symmetric encryption** to demonstrate a secure transmission model for healthcare IoT systems. The system also simulates secure communication between a client and server, encrypting data with an added hash for integrity.
 
 ---
 
@@ -18,18 +18,21 @@ Bowie State University
 
 ## 📌 Project Purpose
 
-Designed as part of a cybersecurity and health technology research initiative, this project explores how encryption can secure sensitive medical data in simulated IoT environments. It mimics real-time patient data generation, encrypts it, verifies decryption accuracy, and visualizes both the data and encryption overhead.
+Designed as part of a cybersecurity and health technology research initiative, this project explores how encryption can secure sensitive medical data in simulated IoT environments. It mimics real-time patient data generation, encrypts it, verifies decryption accuracy, and visualizes both the data and encryption overhead. The system supports secure communication between a client and server for health data transmission.
 
 ---
 
 ## 🚀 Features
 
-- 🔐 **End-to-End Data Encryption & Decryption** using Fernet (symmetric encryption)
-- 📊 **Two Visualization Graphs**:
-  - Original vs. Decrypted data (Blood Pressure, Glucose, Heart Rate)
-  - Byte sizes of Encrypted vs. Unencrypted values
-- 🧪 **User Input Validation**: Accepts and validates user-entered vitals
-- ✅ **Decryption Accuracy Check**: Ensures decrypted data matches the original
+- 🔐 **End-to-End Data Encryption & Decryption** using Fernet (symmetric encryption)  
+- 🧑‍💻 **Simulated IoT Communication**: Client sends encrypted health data to a server, which decrypts and stores the data
+- 📊 **Two Visualization Graphs**:  
+  - **Original vs. Decrypted data**: Blood Pressure, Glucose, and Heart Rate over time  
+  - **Byte Sizes** of Encrypted vs. Unencrypted data  
+- 🧪 **User Input Validation**: Accepts and validates user-entered vitals (Blood Pressure, Glucose, Heart Rate)
+- ✅ **Decryption Accuracy Check**: Verifies that decrypted data matches the original input
+- 🔒 **Data Integrity**: Each transmitted data packet includes a hash for integrity verification
+- 🌐 **Socket Communication**: Secure client-server communication with encryption and hash for integrity
 
 ---
 
@@ -38,7 +41,8 @@ Designed as part of a cybersecurity and health technology research initiative, t
 - **Python 3**
 - [`cryptography`](https://pypi.org/project/cryptography/)
 - [`matplotlib`](https://matplotlib.org/)
-- `random`, `time` (standard libraries)
+- `socket` (for client-server communication)
+- `random`, `time`, `hashlib` (standard libraries)
 
 ---
 
@@ -52,11 +56,15 @@ cd iot-bp-monitor
 ### 2. Install Dependencies
 pip install -r requirements.txt
 
-### 3. Run the Script
-python iot_bp_encryption_monitor.py
+##3. Run the Script
+To start the server:
+python iot_bp_server.py
+To start the client (separate terminal):
+python iot_bp_client.py
 
 ### 4. Output
-Enter your own health values when prompted.
+Enter your own health values (Blood Pressure, Glucose, Heart Rate) when prompted.
+The client sends encrypted data to the server, which decrypts and stores the data.
 Graphs will be saved automatically in the same folder:
-health_metrics_decrypted_comparison.png
-byte_sizes_encrypted_vs_unencrypted.png
+health_metrics_decrypted_comparison.png: Comparison of original vs. decrypted data
+byte_sizes_encrypted_vs_unencrypted.png: Byte size comparison between encrypted and unencrypted data
