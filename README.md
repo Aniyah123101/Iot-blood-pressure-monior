@@ -12,7 +12,7 @@ Bachelor of Science in Computer Technology
 Bowie State University  
 🔐 Undergraduate Researcher, SURI Program  
 📧 Email: aniyahhall1231@gmail.com  
-🔗 GitHub: [github.com/YOURUSERNAME](https://github.com/YOURUSERNAME)
+🔗 GitHub: [github.com/Aniyah123101](https://github.com/Aniyah123101)
 
 ---
 
